@@ -3,6 +3,7 @@
 import cv2
 import numpy as np
 import os
+import socket
 
 import DetectChars
 import DetectPlates
@@ -69,7 +70,20 @@ def main():
         f.write('\n'+licPlate.strChars)
         f.close()
         
-        writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
+        DP_IP = "169.254.135.223" #Direccion de Destino
+        UDP_PORT = 5005
+        #MESSAGE = "Hello, World!"
+
+        print ("UDP target IP:", UDP_IP)
+        print ("UDP target port:", UDP_PORT)
+        print ("message:", licPlate.strChars)
+
+        sock = socket.socket(socket.AF_INET, # Internet
+                    socket.SOCK_DGRAM) # UDP
+        sock.sendto(licPlate.strChars, (UDP_IP, UDP_PORT))
+        
+        
+        #writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
 
         #cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
 
