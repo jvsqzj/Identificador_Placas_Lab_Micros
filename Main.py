@@ -70,7 +70,7 @@ def main(modo, horas):
         UDP_PORT = 5005
         #MESSAGE = "Hello, World!"
 
-        MSJ = modo + '\n' + horas + '\n' + licPlate.strChars
+        MSJ = modo + '_' + horas + '_' + licPlate.strChars
 
         print ("UDP target IP:", UDP_IP)
         print ("UDP target port:", UDP_PORT)
@@ -78,7 +78,7 @@ def main(modo, horas):
 
         sock = socket.socket(socket.AF_INET, # Internet
                     socket.SOCK_DGRAM) # UDP
-        sock.sendto(licPlate.strChars, (UDP_IP, UDP_PORT))
+        sock.sendto(MSJ, (UDP_IP, UDP_PORT))
 
 
         #writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
