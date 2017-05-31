@@ -4,6 +4,7 @@
 import os # Acceso a terminal.
 import random
 from Tkinter import * # Para interfaz grafica.
+import Main
 
 def show(window):
     window.deiconify()
@@ -17,9 +18,15 @@ def execute(f):
 def printf(text):
     print text # Imprime un texto
 
-def exe_script():
+def exe_parking():
     os.system("./Script.sh")
     #print "Script."
+    Main.main("parqueo", str(random.randrange(11)))
+
+def exe_toll():
+    os.system("./Script.sh")
+    #print "Script."
+    Main.main("peaje", "0")
 
 def filetoll():
     f = open('archivo.txt', 'w')
@@ -28,7 +35,7 @@ def filetoll():
 
 def fileparking():
     f2 = open('archivo.txt', 'w')
-    a = random.randrange(11)
+    a =
     b = str(a)
     f2.write('parqueo\n'+b)
     f2.close()
@@ -49,10 +56,10 @@ B0 = Button(W0, text="Sistema Peaje", command=lambda: execute(show(W1))).pack()
 B1 = Button(W0, text="Sistema Parqueo", command=lambda: execute(show(W2))).pack()
 B2 = Button(W0, text="Salir", command=lambda: W0.destroy()).pack()
 
-B3 = Button(W1, text="Fotografiar", command=lambda: filetoll() or exe_script()).pack()
+B3 = Button(W1, text="Fotografiar", command=lambda: exe_toll()).pack()
 B4 = Button(W1, text="Cancelar", command=lambda: execute(hide(W1))).pack()
 
-B5 = Button(W2, text="Fotografiar", command=lambda: fileparking() or exe_script()).pack()
+B5 = Button(W2, text="Fotografiar", command=lambda: exe_parking()).pack()
 B6 = Button(W2, text="Cancelar", command=lambda: execute(hide(W2))).pack()
 
 W1.withdraw() # Oculta ventana.

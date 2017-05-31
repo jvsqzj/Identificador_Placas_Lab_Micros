@@ -19,7 +19,7 @@ SCALAR_RED = (0.0, 0.0, 255.0)
 showSteps = False
 
 ###################################################################################################
-def main():
+def main(modo, horas):
 
     blnKNNTrainingSuccessful = DetectChars.loadKNNDataAndTrainKNN()         # attempt KNN training
 
@@ -66,23 +66,21 @@ def main():
         print ("\n Placa = " + licPlate.strChars + "\n")       # write license plate text to std out
         print ("----------------------------------------")
 
-        f = open('archivo.txt', 'a')
-        f.write('\n'+licPlate.strChars)
-        f.close()
-        
-        DP_IP = "169.254.135.223" #Direccion de Destino
+        UDP_IP = "169.254.135.223" #Direccion de Destino
         UDP_PORT = 5005
         #MESSAGE = "Hello, World!"
 
+        MSJ = modo + '\n' + horas + '\n' + licPlate.strChars
+
         print ("UDP target IP:", UDP_IP)
         print ("UDP target port:", UDP_PORT)
-        print ("message:", licPlate.strChars)
+        print ("message:", MSJ)
 
         sock = socket.socket(socket.AF_INET, # Internet
                     socket.SOCK_DGRAM) # UDP
         sock.sendto(licPlate.strChars, (UDP_IP, UDP_PORT))
-        
-        
+
+
         #writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
 
         #cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
@@ -150,21 +148,3 @@ def writeLicensePlateCharsOnImage(imgOriginalScene, licPlate):
 ###################################################################################################
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
