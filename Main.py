@@ -65,6 +65,10 @@ def main():
         print ("\n Placa = " + licPlate.strChars + "\n")       # write license plate text to std out
         print ("----------------------------------------")
 
+        f = open('archivo.txt', 'a')
+        f.write('\n'+licPlate.strChars)
+        f.close()
+        
         writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
 
         #cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
