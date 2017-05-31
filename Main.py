@@ -3,8 +3,6 @@
 import cv2
 import numpy as np
 import os
-import time
-import serial
 
 import DetectChars
 import DetectPlates
@@ -29,7 +27,7 @@ def main():
         return                                                          # and exit program
     # end if
 
-    imgOriginalScene  = cv2.imread("jk.png")               # open image
+    imgOriginalScene  = cv2.imread("foto.png")               # open image
 
     if imgOriginalScene is None:                            # if image was not read successfully
         print ("\nerror: image not read from file \n\n")      # print error message to std out
@@ -41,7 +39,7 @@ def main():
 
     listOfPossiblePlates = DetectChars.detectCharsInPlates(listOfPossiblePlates)        # detect chars in plates
 
-    cv2.imshow("imgOriginalScene", imgOriginalScene)            # show scene image
+    #cv2.imshow("imgOriginalScene", imgOriginalScene)            # show scene image
 
     if len(listOfPossiblePlates) == 0:                          # if no plates were found
         print ("\nno license plates were detected\n")             # inform user no plates were found
@@ -62,47 +60,20 @@ def main():
             return                                          # and exit program
         # end if
 
-#        drawRedRectangleAroundPlate(imgOriginalScene, licPlate)             # draw red rectangle around plate
+        drawRedRectangleAroundPlate(imgOriginalScene, licPlate)             # draw red rectangle around plate
 
-        print ("\nlicense plate read from image = " + licPlate.strChars + "\n")       # write license plate text to std out
+        print ("\n Placa = " + licPlate.strChars + "\n")       # write license plate text to std out
         print ("----------------------------------------")
 
-#        writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
+        writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
 
-#       cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
+        cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
 
-#       cv2.imwrite("imgOriginalScene.png", imgOriginalScene)           # write image out to file
+        cv2.imwrite("imgOriginalScene.png", imgOriginalScene)           # write image out to file
 
-# end if else
+    # end if else
 
-        print ("Starting program")
-        ser = serial.Serial('/dev/ttyAMA0', baudrate=9600,
-                    parity=serial.PARITY_NONE,
-                    stopbits=serial.STOPBITS_ONE,
-                    bytesize=serial.EIGHTBITS
-                    )
-        time.sleep(1)
-        try:
-            ser.write('Hello World\r\n')
-            ser.write('Serial Communication Using Raspberry Pi\r\n')
-            ser.write('By: Embedded Laboratory\r\n')
-            print 'Data Echo Mode Enabled'
-            while True:
-                if ser.inWaiting() > 0:
-                    data = ser.read()
-                    print data
-        
-        except KeyboardInterrupt:
-            print ("Exiting Program")
-
-        except:
-            print ("Error Occurs, Exiting Program")
-
-        finally:
-            ser.close()
-            pass
-        
-    cv2.waitKey(0)					# hold windows open until user presses a key
+    #cv2.waitKey(0)					# hold windows open until user presses a key
 
     return
 # end main
