@@ -28,23 +28,6 @@ def exe_toll():
     #print "Script."
     Main.main("peaje", "0")
 
-def filetoll():
-    f = open('archivo.txt', 'w')
-    f.write('peaje\n0')
-    f.close()
-
-def fileparking():
-    f2 = open('archivo.txt', 'w')
-    a =
-    b = str(a)
-    f2.write('parqueo\n'+b)
-    f2.close()
-
-def funcionprueba():
-    f3 = open('archivo.txt', 'a')
-    f3.write('hola')
-    f3.close()
-
 W0 = Tk() # Abre ventana.
 
 W1 = Toplevel(W0) # Ventana hija.
