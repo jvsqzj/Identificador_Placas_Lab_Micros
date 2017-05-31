@@ -30,7 +30,7 @@ def main():
     imgOriginalScene  = cv2.imread("foto.png")               # open image
 
     if imgOriginalScene is None:                            # if image was not read successfully
-        print ("\nerror: La imagen no se encontró \n\n")      # print error message to std out
+        print ("\nerror: La imagen no se encontro \n\n")      # print error message to std out
         os.system("pause")                                  # pause so user can see error message
         return                                              # and exit program
     # end if
@@ -52,8 +52,8 @@ def main():
                 # suppose the plate with the most recognized chars (the first plate in sorted by string length descending order) is the actual plate
         licPlate = listOfPossiblePlates[0]
 
-        cv2.imshow("imgPlate", licPlate.imgPlate)           # show crop of plate and threshold of plate
-        cv2.imshow("imgThresh", licPlate.imgThresh)
+        #cv2.imshow("imgPlate", licPlate.imgPlate)           # show crop of plate and threshold of plate
+        #cv2.imshow("imgThresh", licPlate.imgThresh)
 
         if len(licPlate.strChars) == 0:                     # if no chars were found in the plate
             print ("\nNo se detectaron caracteres\n\n")       # show message
@@ -67,9 +67,9 @@ def main():
 
         writeLicensePlateCharsOnImage(imgOriginalScene, licPlate)           # write license plate text on the image
 
-        cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
+        #cv2.imshow("imgOriginalScene", imgOriginalScene)                # re-show scene image
 
-        cv2.imwrite("imgOriginalScene.png", imgOriginalScene)           # write image out to file
+        #cv2.imwrite("imgOriginalScene.png", imgOriginalScene)           # write image out to file
 
     # end if else
 
