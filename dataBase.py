@@ -1,7 +1,7 @@
 #Funcion para encontrar el ID correspondiente a una placa
 
 
-import sys, os
+import sys, os, io
 import csv, operator
 
 def buscarID(placa):
@@ -14,7 +14,8 @@ def buscarID(placa):
 def agregarDatos(placa, ID):
     csvsalida = open('info.csv', 'a', newline='')
     salida = csv.writer(csvsalida)
-    salida.writerow([placa, ID])
+    placaI = int(placa.replace('/placa ', '0'))
+    salida.writerow([placaI, ID])
     del salida
     csvsalida.close()
 
