@@ -33,6 +33,11 @@ def fileparking():
     f2.write('parqueo\n'+b)
     f2.close()
 
+def funcionprueba():
+    f3 = open('archivo.txt', 'a')
+    f3.write('hola')
+    f3.close()
+
 W0 = Tk() # Abre ventana.
 
 W1 = Toplevel(W0) # Ventana hija.
@@ -44,16 +49,11 @@ B0 = Button(W0, text="Sistema Peaje", command=lambda: execute(show(W1))).pack()
 B1 = Button(W0, text="Sistema Parqueo", command=lambda: execute(show(W2))).pack()
 B2 = Button(W0, text="Salir", command=lambda: W0.destroy()).pack()
 
-B3 = Button(W1, text="Fotografiar", command=lambda: exe_script() or filetoll()).pack()
+B3 = Button(W1, text="Fotografiar", command=lambda: filetoll() or exe_script()).pack()
 B4 = Button(W1, text="Cancelar", command=lambda: execute(hide(W1))).pack()
 
-B5 = Button(W2, text="Fotografiar", command=lambda: exe_script() or fileparking()).pack()
+B5 = Button(W2, text="Fotografiar", command=lambda: fileparking() or exe_script()).pack()
 B6 = Button(W2, text="Cancelar", command=lambda: execute(hide(W2))).pack()
-
-#B1 = Button(W0, text="Tomar foto y procesarla", command=lambda: execute(show(W1))).pack()
-#B3 = Button(W1, text="Sistema Peaje", command=lambda: exe_script() or filetoll()).pack()
-#B4 = Button(W1, text="Sistema Parqueo", command=lambda: exe_script() or fileparking()).pack()
-#B5 = Button(W1, text="Cancelar", command=lambda: execute(hide(W1))).pack()
 
 W1.withdraw() # Oculta ventana.
 W2.withdraw() # Oculta ventana.
