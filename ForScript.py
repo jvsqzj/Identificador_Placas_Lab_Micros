@@ -29,11 +29,18 @@ def exe_toll():
     Main.main("peaje", "0")
 
 W0 = Tk() # Abre ventana.
+W0.geometry("500x500")
+W0.title("Identificación de Placas Vehiculares")
 
 W1 = Toplevel(W0) # Ventana hija.
-W2 = Toplevel(W0) # Ventana hija.
 W1.protocol("WM_DELETE_WINDOW", "onexit") # Elimina la opción de salir para evitar el error.
+W1.geometry("250x250")
+W1.title("Sistema de Peaje")
+
+W2 = Toplevel(W0) # Ventana hija.
 W2.protocol("WM_DELETE_WINDOW", "onexit") # Elimina la opción de salir para evitar el error.
+W2.geometry("250x250")
+W2.title("Sistema de Parqueo")
 
 B0 = Button(W0, text="Sistema Peaje", command=lambda: execute(show(W1))).pack()
 B1 = Button(W0, text="Sistema Parqueo", command=lambda: execute(show(W2))).pack()
