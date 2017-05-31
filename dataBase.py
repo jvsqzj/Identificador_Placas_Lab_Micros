@@ -1,5 +1,5 @@
 #Funcion para encontrar el ID correspondiente a una placa
-
+# -*- coding: utf-8 -*-
 
 import sys, os, io
 import csv, operator
@@ -14,10 +14,11 @@ def buscarID(placa):
 def agregarDatos(placa, ID):
     csvsalida = open('info.csv', 'a', newline='')
     salida = csv.writer(csvsalida)
-    placaI = int(placa.replace('/placa ', '0'))
+    placaI = placa.replace('/placa ', '')
     salida.writerow([placaI, ID])
     del salida
     csvsalida.close()
+
 
 def SEND(chatid,message):                                                  #Se define esta funcion para ingresar como parametros el destinatario y el mensaje a enviar por Telegram
     command = 'echo %s | ./teleSEND.sh %d' %(message,chatid)               #El comando se ingresa como un string parametrizado
