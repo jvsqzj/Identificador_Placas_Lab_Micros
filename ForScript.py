@@ -18,8 +18,8 @@ def printf(text):
     print text # Imprime un texto
 
 def exe_script():
-    #os.system("./Script.sh")
-    print "Script."
+    os.system("./Script.sh")
+    #print "Script."
 
 def filetoll():
     f = open('archivo.txt', 'w')
