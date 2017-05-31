@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, RegexHandler,ConversationHandler)
+from telegram.ext import (Updater, CommandHandler, MessageHandler)
 import dataBase
 
 import logging
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-CHOOSING, PLACA = range(2)
 
 def start(bot, update):
     user = update.message.from_user
@@ -23,10 +21,10 @@ def getPlaca(bot, update):
     buscado = dataBase.buscarID(placa)
     if buscado == None:
         dataBase.agregarDatos(placa,chat_id)
-        update.message.reply_text('Todo listo. Ahora recibira una notificacion cada vez que haya un cobro pendiente. Si desea agregar otro vehiculo a su nombre, puede ingresar el nuevo número de placa con el mismo formato: /placa ######',
+        update.message.reply_text('Todo listo. Ahora recibirá una notificación cada vez que haya un cobro pendiente.\n\n Si desea agregar otro vehículo a su nombre, puede ingresar el nuevo número de placa con el mismo formato: /placa ######',
                               reply_markup=ReplyKeyboardRemove())
     else:
-        update.message.reply_text('Este vehiculo ya se encuentra registrado. Para agregar otro vehiculo, utilice el formato: /placa ######',
+        update.message.reply_text('Este vehículo ya se encuentra registrado. Para agregar otro vehículo, utilice el formato: /placa ######',
                               reply_markup=ReplyKeyboardRemove())
 
 
