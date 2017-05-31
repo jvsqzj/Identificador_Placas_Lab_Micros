@@ -30,7 +30,7 @@ def main():
     imgOriginalScene  = cv2.imread("foto.png")               # open image
 
     if imgOriginalScene is None:                            # if image was not read successfully
-        print ("\nerror: image not read from file \n\n")      # print error message to std out
+        print ("\nerror: La imagen no se encontró \n\n")      # print error message to std out
         os.system("pause")                                  # pause so user can see error message
         return                                              # and exit program
     # end if
@@ -56,7 +56,7 @@ def main():
         cv2.imshow("imgThresh", licPlate.imgThresh)
 
         if len(licPlate.strChars) == 0:                     # if no chars were found in the plate
-            print ("\nno characters were detected\n\n")       # show message
+            print ("\nNo se detectaron caracteres\n\n")       # show message
             return                                          # and exit program
         # end if
 
