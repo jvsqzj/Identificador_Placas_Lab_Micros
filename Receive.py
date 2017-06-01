@@ -1,6 +1,6 @@
 import socket, dataBase
 
-UDP_IP = "169.254.135.223" #Direccion IP Destino
+UDP_IP = "169.254.135.223" # Direccion IP Destino
 UDP_PORT = 5005
 
 sock = socket.socket(socket.AF_INET, # Internet
