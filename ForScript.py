@@ -60,14 +60,14 @@ W2.config(bg = "gray75")
 
 # Botones.
 B0 = Button(W0, text="Sistema Peaje", cursor="hand1", background="gray80", borderwidth=5, command = lambda: printf("\nSistema de Peaje.\n--------------------*") or execute(hide(W2)) or execute(show(W1))).pack(fill=BOTH, expand=1)
-B1 = Button(W0, text="Sistema Parqueo", cursor="hand2", background="gray80", borderwidth=5, command = lambda: printf("\nSistema de Parqueo\n--------------------*") or execute(hide(W1)) or execute(show(W2))).pack(fill=BOTH, expand=1)
-B2 = Button(W0, text="Salir", background="gray80", borderwidth=3, command = lambda: printf("\nFin del programa.\n") or W0.destroy()).pack(fill=BOTH, expand=1)
+B1 = Button(W0, text="Sistema Parqueo", cursor="hand1", background="gray80", borderwidth=5, command = lambda: printf("\nSistema de Parqueo\n--------------------*") or execute(hide(W1)) or execute(show(W2))).pack(fill=BOTH, expand=1)
+B2 = Button(W0, text="Salir", cursor="hand1", background="gray80", borderwidth=3, command = lambda: printf("\nFin del programa.\n") or W0.destroy()).pack(fill=BOTH, expand=1)
 
-B3 = Button(W1, text="Fotografiar", background="gray80", borderwidth=5, command = lambda: exe_toll()).pack(fill=BOTH, expand=1)
-B4 = Button(W1, text="Volver", background="gray80", borderwidth=3, command = lambda: printf("\nSistema Principal.\n--------------------*") or execute(hide(W1))).pack(fill=BOTH, expand=1)
+B3 = Button(W1, text="Fotografiar", cursor="hand1", background="gray80", borderwidth=5, command = lambda: exe_toll()).pack(fill=BOTH, expand=1)
+B4 = Button(W1, text="Volver", cursor="hand1", background="gray80", borderwidth=3, command = lambda: printf("\nSistema Principal.\n--------------------*") or execute(hide(W1))).pack(fill=BOTH, expand=1)
 
-B5 = Button(W2, text="Fotografiar", background="gray80", borderwidth=5, command = lambda: exe_parking()).pack(fill=BOTH, expand=1)
-B6 = Button(W2, text="Volver", background="gray80", borderwidth=3, command = lambda: printf("\nSistema Principal.\n--------------------*") or execute(hide(W2))).pack(fill=BOTH, expand=1)
+B5 = Button(W2, text="Fotografiar", cursor="hand1", background="gray80", borderwidth=5, command = lambda: exe_parking()).pack(fill=BOTH, expand=1)
+B6 = Button(W2, text="Volver", cursor="hand1", background="gray80", borderwidth=3, command = lambda: printf("\nSistema Principal.\n--------------------*") or execute(hide(W2))).pack(fill=BOTH, expand=1)
 
 hide(W1)
 hide(W2)
