@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import socket, dataBase
 
 UDP_IP = "169.254.135.223" #Direccion IP Destino
@@ -9,7 +11,7 @@ sock.bind((UDP_IP, UDP_PORT))
 
 while True:
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
-    print ("MENSAJE:"), data
+    print ("MENSAJE: ", data), data
     if data != None:
         dataS = data.split()
         modo = dataS[0]
@@ -21,6 +23,6 @@ while True:
         precioHoras = 850*int(horas)
         if modo == 'peaje':
             mensaje = ('Usted tiene un cobro de peaje pendiente por %d colones, al vehículo con placa %s.' %(precio, placa))
-        else if modo == 'parqueo':
+        elif (modo == 'parqueo'):
             mensaje = ('El monto a pagar por %s de parqueo es de %d colones, al vehículo con placa %s.' %(horas, precioHoras, placa))
         dataBase.SEND(chatID,mensaje)

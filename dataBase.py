@@ -9,7 +9,9 @@ def buscarID(placa):
         entrada = csv.reader(csvarchivo)
         for register in entrada:
            if register[0] == str(placa):
-                print(register[1])
+                return int(register[1])
+
+
 
 def agregarDatos(placa, ID):
     csvsalida = open('info.csv', 'a', newline='')
