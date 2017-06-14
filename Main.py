@@ -63,8 +63,8 @@ def main(modo, horas):
 
         drawRedRectangleAroundPlate(imgOriginalScene, licPlate)             # draw red rectangle around plate
 
-        print ("\n Placa = " + licPlate.strChars + "\n")       # write license plate text to std out
-        print ("----------------------------------------")
+        print ("\n  Placa: " + licPlate.strChars)       # write license plate text to std out
+        #print ("----------------------------------------")
 
         UDP_IP = "169.254.135.223" #Direccion de Destino
         UDP_PORT = 5005
@@ -72,9 +72,9 @@ def main(modo, horas):
 
         MSJ = modo + '_' + horas + '_' + licPlate.strChars
 
-        print ("UDP target IP:", UDP_IP)
-        print ("UDP target port:", UDP_PORT)
-        print ("message:", MSJ)
+        #print ("UDP target IP:", UDP_IP)
+        #print ("UDP target port:", UDP_PORT)
+        #print ("message:", MSJ)
 
         sock = socket.socket(socket.AF_INET, # Internet
                     socket.SOCK_DGRAM) # UDP
